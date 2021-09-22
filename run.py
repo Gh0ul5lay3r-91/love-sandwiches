@@ -27,4 +27,5 @@ def get_sales_data():
     data_str = input("Enter your data here: ")
     print(f"Data provide is {data_str}")
 
-    get_sales_data()
+    
+get_sales_data()
