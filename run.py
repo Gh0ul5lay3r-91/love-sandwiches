@@ -15,8 +15,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('love_sandwiches')
 
-from pprint import pprint
-
 def get_sales_data():
     """
     Get sales figures input from user
@@ -26,7 +24,7 @@ def get_sales_data():
         print("Data should be six numbers separated by commas")
         print("Example: 10,20,30,40,50,60")
 
-        data_str = input("Enter your data here: ")
+        data_str = input("Enter your data here:\n")
     
         sales_data = data_str.split(",")
         if validate_data(sales_data):
@@ -40,7 +38,7 @@ def validate_data(values):
     Raises ValueError if strings cannot be converted into an int, 
     or if there arnt exactly 6 values
     """
-    try: 
+    try:
         [int(value) for value in values]
         if len(values) != 6:
             raise ValueError(
